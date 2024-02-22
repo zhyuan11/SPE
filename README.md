@@ -1,7 +1,7 @@
 # SPE
 Official Implementation for Sinusoidal Positional Encoding (SPE)
 
-This is the Official Code for paper "Learning High-Frequency Functions Made Easy with Sinusoidal Positional Encoding"
+This is the Official Code for paper "Learning High-Frequency Functions Made Easy with Sinusoidal Positional Encoding". (Under Review)
 
 ## Baselines
 
@@ -23,9 +23,16 @@ Additionally, the loss plots for both the Fourier features network and our impro
 
 We implement the SPE with FastSpeech, where the full connection layers perform a bottleneck when generating more details of the speech signal. See the implementation of ["FastSpeech"](https://github.com/xcmyz/FastSpeech)
 
+![Details of Speech Generation with SPE (1)](imgs/details1.png)
+
+![Details of Speech Generation with SPE (2)](imgs/details2.png)
+
+
+
 ### NeRF
 
 We implement the SPE with FreeNeRF and achieve the state-of-the-art performance on few-view NeRF fidelity. See the implementation of ["FreeNeRF"](https://github.com/Jiawei-Yang/FreeNeRF)
 
+![Explain the Default Configuration of NeRF](imgs/hist.png)
 
-
+![Chair NeRF](imgs/chair2.png)
