@@ -19,20 +19,40 @@ We have modified the first Dense layer, replacing it with a Sinusoidal layer, to
 
 Additionally, the loss plots for both the Fourier features network and our improved version incorporating SPE can be found in the same directory.
 
-### Text2Speech Generation
+### Text2Speech Generation 
+
+(Full Implementation Coming Soon)
 
 We implement the SPE with FastSpeech, where the full connection layers perform a bottleneck when generating more details of the speech signal. See the implementation of ["FastSpeech"](https://github.com/xcmyz/FastSpeech)
 
-![Details of Speech Generation with SPE (1)](imgs/details1.png)
+![Details of Speech Generation with SPE (1)](imgs/details3.png)
 
-![Details of Speech Generation with SPE (2)](imgs/details2.png)
+The gain is reflected on different fidelity metrics as well.
 
+
+![Speech Table](imgs/speech.png)
 
 
 ### NeRF
 
+(Full Implementation Coming Soon)
+
 We implement the SPE with FreeNeRF and achieve the state-of-the-art performance on few-view NeRF fidelity. See the implementation of ["FreeNeRF"](https://github.com/Jiawei-Yang/FreeNeRF)
+
+The modification we made is illustrated in the following figure:
+
+![SPE and NeRF](imgs/spenerf.png)
+
+And for the first time, we managed to explain why the Basic NeRF takes 10 components on Blender dataset by learning the frequency features directly.
 
 ![Explain the Default Configuration of NeRF](imgs/hist.png)
 
+Our model achieves SOTA performance on few-view NeRF tasks
+
+![Basic Chair NeRF](imgs/chair3.png)
+
 ![Chair NeRF](imgs/chair2.png)
+
+Compared with different SOTA NeRF method with different encoding methods, the SPE shows stable gain that depends on the exact implementation of NeRF method. The fidelity is shown in the following table.
+
+![Performance NeRF](imgs/nerf.png)
