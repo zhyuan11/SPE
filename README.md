@@ -1,7 +1,13 @@
 # SPE
 Official Implementation for Sinusoidal Positional Encoding (SPE)
 
-This is the Official Code for paper "Learning High-Frequency Functions Made Easy with Sinusoidal Positional Encoding". (Under Review)
+This is the Official Code for paper 
+
+"Learning High-Frequency Functions Made Easy with Sinusoidal Positional Encoding". 
+
+Chuanhao Sun, Zhihang Yuan, Kai Xu, Luo Mai, Siddharth N, Shuo Chen, Mahesh K. Marina.
+
+(Under Review)
 
 ## Baselines
 
