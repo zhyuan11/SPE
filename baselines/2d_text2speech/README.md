@@ -1,52 +1,23 @@
-# FastSpeech-Pytorch
-The Implementation of FastSpeech Based on Pytorch.
+# [Submission] Learning High-Frequency Functions Made Easy with Sinusoidal Positional Encoding
 
-## Update (2020/07/20)
-1. Optimize the training process.
-2. Optimize the implementation of length regulator.
-3. Use the same hyper parameter as FastSpeech2.
-4. **The measures of the 1, 2 and 3 make the training process 3 times faster than before.**
-5. **Better speech quality.**
+Notice: This part is still under restructuring for an easier implementation.
 
-## Model
-<div style="text-align: center">
-    <img src="img/fastspeech_structure.png" style="max-width:100%;">
-</div>
+## Experiments Implementation
 
-## My Blog
-- [FastSpeech Reading Notes](https://zhuanlan.zhihu.com/p/67325775)
-- [Details and Rethinking of this Implementation](https://zhuanlan.zhihu.com/p/67939482)
+### Ground Truth
 
-## Prepare Dataset
-1. Download and extract [LJSpeech dataset](https://keithito.com/LJ-Speech-Dataset/).
-2. Put LJSpeech dataset in `data`.
-3. Unzip `alignments.zip`.
-4. Put [Nvidia pretrained waveglow model](https://drive.google.com/file/d/1WsibBTsuRg_SF2Z6L6NFRTT-NjEy1oTx/view?usp=sharing) in the `waveglow/pretrained_model` and rename as `waveglow_256channels.pt`;
-5. Run `python3 preprocess.py`.
+For illustration purpose, we will use the Text to Speech Model (["FastSpeech"](https://github.com/xcmyz/FastSpeech)) to generate the sentence `The crime soon became public.`. The corresponding audio file is LJ013-0031 from ["LJSpeech dataset"](https://keithito.com/LJ-Speech-Dataset/).
 
-## Training
-Run `python3 train.py`.
+We have included the ground truth video files, as long as the other three synthetic audio file within the directory [./experiments_results/](./experiments_results).
 
-## Evaluation
-Run `python3 eval.py`.
+The corresponding spectrogram plot can be found in the same directory, plotted by the jupyter notebook script [./mel-spectrogram.ipynb](./mel-spectrogram.ipynb).
 
-## Notes
-- In the paper of FastSpeech, authors use pre-trained Transformer-TTS model to provide the target of alignment. I didn't have a well-trained Transformer-TTS model so I use Tacotron2 instead.
-- I use the same hyper-parameter as [FastSpeech2](https://arxiv.org/abs/2006.04558).
-- The examples of audio are in `sample`.
-- [pretrained model](https://drive.google.com/file/d/1vMrKtbjPj9u_o3Y-8prE6hHCc6Yj4Nqk/view?usp=sharing).
+### Baseline Experiments
 
-## Reference
+We modified the FastSpeech implementation in order to test the performance among FastSpeech without PE, FastSpeech with PE and FastSpeech with SPE. We have use `NOTE` keyword within the [./model.py](./model.py) to highlight the changes we made to implement SPE.
 
-### Repository
-- [The Implementation of Tacotron Based on Tensorflow](https://github.com/keithito/tacotron)
-- [The Implementation of Transformer Based on Pytorch](https://github.com/jadore801120/attention-is-all-you-need-pytorch)
-- [The Implementation of Transformer-TTS Based on Pytorch](https://github.com/xcmyz/Transformer-TTS)
-- [The Implementation of Tacotron2 Based on Pytorch](https://github.com/NVIDIA/tacotron2)
-- [The Implementation of FastSpeech2 Based on Pytorch](https://github.com/ming024/FastSpeech2)
+- For FastSpeech without PE, we follow their implementation of FastSPeech.
+- For FastSpeech with PE, we add single one PE layer after the decoder, and before the linear layer below the decoder. (See forward pass within the `model.py` file).
+- For FastSpeech with PE, we add SPE layer (PE + Linear + SIREN) after the decoder, and before the linear layer below the decoder. (See forward pass within the `model.py` file).
 
-### Paper
-- [Tacotron2](https://arxiv.org/abs/1712.05884)
-- [Transformer](https://arxiv.org/abs/1706.03762)
-- [FastSpeech](https://arxiv.org/abs/1905.09263)
-- [FastSpeech2](https://arxiv.org/abs/2006.04558)
+To make sure all experiments are comparable, we use `L=5` for both PE and SPE. The reason to choose `L=5` is that it can achieve optimal performance for PE within our search range from 1 to 10.
