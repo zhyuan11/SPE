@@ -130,26 +130,13 @@ class FastSpeech(nn.Module):
                 mel_max_length=mel_max_length,
             )
 
-            # # TODO I added this
-            # length_regulator_output = self.pos_enc(length_regulator_output)
-            # length_regulator_output = self.pos_fc(length_regulator_output)
-            # length_regulator_output = self.siren(length_regulator_output)
-
             decoder_output = self.decoder(length_regulator_output, mel_pos)
-            # TODO I added this
-            # decoder_output = self.pos_enc(decoder_output)
-            # decoder_output = self.pos_fc(decoder_output)
-            # decoder_output = self.siren(decoder_output)
 
-            # TODO residual connection
-            decoder_output_pos_part = self.pos_enc(decoder_output)
-            decoder_output_pos_part = self.pos_up_dim(decoder_output_pos_part)
-            decoder_output_pos_part = self.relu_after_pos_up_dim(decoder_output_pos_part)
-
-            decoder_output_siren_part = self.pos_fc(decoder_output)
-            decoder_output_siren_part = self.siren(decoder_output_siren_part)
-
-            decoder_output = decoder_output_pos_part + decoder_output_siren_part
+            # NOTE SPE STARTS
+            decoder_output = self.pos_enc(decoder_output)
+            decoder_output = self.pos_fc(decoder_output)
+            decoder_output = self.siren(decoder_output)
+            # NOTE SPE ENDS
 
             mel_output = self.mel_linear(decoder_output)
             mel_output = self.mask_tensor(mel_output, mel_pos, mel_max_length)
@@ -166,26 +153,13 @@ class FastSpeech(nn.Module):
                 encoder_output, alpha=alpha
             )
 
-            # # TODO I added this
-            # length_regulator_output = self.pos_enc(length_regulator_output)
-            # length_regulator_output = self.pos_fc(length_regulator_output)
-            # length_regulator_output = self.siren(length_regulator_output)
-
             decoder_output = self.decoder(length_regulator_output, decoder_pos)
-            # TODO I added this
-            # decoder_output = self.pos_enc(decoder_output)
-            # decoder_output = self.pos_fc(decoder_output)
-            # decoder_output = self.siren(decoder_output)
-            
-            # TODO residual connection
-            decoder_output_pos_part = self.pos_enc(decoder_output)
-            decoder_output_pos_part = self.pos_up_dim(decoder_output_pos_part)
-            decoder_output_pos_part = self.relu_after_pos_up_dim(decoder_output_pos_part)
 
-            decoder_output_siren_part = self.pos_fc(decoder_output)
-            decoder_output_siren_part = self.siren(decoder_output_siren_part)
-
-            decoder_output = decoder_output_pos_part + decoder_output_siren_part
+            # NOTE SPE STARTS
+            decoder_output = self.pos_enc(decoder_output)
+            decoder_output = self.pos_fc(decoder_output)
+            decoder_output = self.siren(decoder_output)
+            # NOTE SPE ENDS
 
             mel_output = self.mel_linear(decoder_output)
             residual = self.postnet(mel_output)
