@@ -11,12 +11,14 @@ Chuanhao Sun, Zhihang Yuan, Kai Xu, Luo Mai, Siddharth N, Shuo Chen, Mahesh K. M
 
 (Under Review)
 
-## Baselines
+## Usecases
 
 We conducted extensive use case evaluations including 1) 1-d regression, 2) 2-d speech synthesis and 3) 3-d NeRF.
-The results of baseline comparison is listed in [./baselines](./baselines) folder.
+The implmentations and results of baseline comparison are listed in [./codes](./codes) folder.
 
 ### 1-D regression
+
+[./codes/1d_regression](./codes/1d_regression)
 
 We implement the 1d regression task with SPE. See the implementation of ["Fourier Features Let Networks Learn High Frequency Functions in Low Dimensional Domains"](https://github.com/tancik/fourier-feature-networks/tree/master).
 
@@ -40,7 +42,8 @@ We implement the 1d regression task with SPE. See the implementation of ["Fourie
 
 ### Text2Speech Generation 
 
-(Full Implementation Coming Soon)
+[./codes/2d_text2speech](./codes/2d_text2speech)
+(Under Restructuring)
 
 We implement the SPE with FastSpeech, where the full connection layers perform a bottleneck when generating more details of the speech signal. See the implementation of ["FastSpeech"](https://github.com/xcmyz/FastSpeech)
 
@@ -54,7 +57,8 @@ The gain is reflected on different fidelity metrics as well.
 
 ### NeRF
 
-(Full Implementation Coming Soon)
+[./codes/3d_NeRF](./codes/3d_NeRF)
+(Under Restructuring)
 
 We implement the SPE with FreeNeRF and achieve the state-of-the-art performance on few-view NeRF fidelity. See the implementation of ["FreeNeRF"](https://github.com/Jiawei-Yang/FreeNeRF)
 
