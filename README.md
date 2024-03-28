@@ -1,5 +1,4 @@
-# SPE
-Official Implementation for Sinusoidal Positional Encoding (SPE)
+# Official Implementation for Sinusoidal Positional Encoding (SPE)
 
 This is the Official Code for paper 
 
