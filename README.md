@@ -23,19 +23,19 @@ The implmentations and results of baseline comparison are listed in [./codes](./
 We implement the 1d regression task with SPE. See the implementation of ["Fourier Features Let Networks Learn High Frequency Functions in Low Dimensional Domains"](https://github.com/tancik/fourier-feature-networks/tree/master).
 
 <p align="center">
-  <img src="./baselines/1d_regression/1d_loss_original.png" alt="Loss plots for 1-d regression task using original PE.">
+  <img src="./codes/1d_regression/1d_loss_original.png" alt="Loss plots for 1-d regression task using original PE.">
   <br>
   <em>Fig: Loss plots for 1-d regression task using original PE.</em>
 </p>
 
 <p align="center">
-  <img src="./baselines/1d_regression/1d_loss_grff.png" alt="Loss plots for 1-d regression task using Gaussian Random Fourier Features (Gaussian RFF).">
+  <img src="./codes/1d_regression/1d_loss_grff.png" alt="Loss plots for 1-d regression task using Gaussian Random Fourier Features (Gaussian RFF).">
   <br>
   <em>Fig: Loss plots for 1-d regression task using Gaussian Random Fourier Features (Gaussian RFF).</em>
 </p>
 
 <p align="center">
-  <img src="./baselines/1d_regression/1d_loss_ours.png" alt="Loss plots for 1-d regression task using our proposed SPE.">
+  <img src="./codes/1d_regression/1d_loss_ours.png" alt="Loss plots for 1-d regression task using our proposed SPE.">
   <br>
   <em>Fig: Loss plots for 1-d regression task using our proposed SPE.</em>
 </p>
