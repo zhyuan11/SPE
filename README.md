@@ -34,9 +34,9 @@ Additionally, the loss plots for both the Fourier features network and our impro
 </p>
 
 <p align="center">
-  <img src="./baselines/1d_regression/1d_loss_gff.png" alt="Loss plots for 1-d regression task using Gaussian Random Fourier Features (Gaussian RFF).">
+  <img src="./baselines/1d_regression/1d_loss_grff.png" alt="Loss plots for 1-d regression task using Gaussian Random Fourier Features (Gaussian RFF).">
   <br>
-  <em>Fig: Loss plots for 1-d regression task using Gaussian Fourier Features (GFF).</em>
+  <em>Fig: Loss plots for 1-d regression task using Gaussian Random Fourier Features (Gaussian RFF).</em>
 </p>
 
 <p align="center">
