@@ -1,0 +1,19 @@
+--- /home/dcg-adlr-rafaelvalle-source.cosmos597/repos/nvidia/waveglow/glow.py
++++ /home/dcg-adlr-rafaelvalle-source.cosmos597/repos/nvidia/waveglow/glow.py
+@@ -4,7 +4,6 @@
+     of its weight matrix.  If reverse=True it does convolution with
+     inverse
+     """
+-
+     def __init__(self, c):
+         super(Invertible1x1Conv, self).__init__()
+         self.conv = torch.nn.Conv1d(c, c, kernel_size=1, stride=1, padding=0,
+@@ -15,7 +14,7 @@
+ 
+         # Ensure determinant is 1.0 not -1.0
+         if torch.det(W) < 0:
+-            W[:, 0] = -1*W[:, 0]
++            W[:,0] = -1*W[:,0]
+         W = W.view(c, c, 1)
+         self.conv.weight.data = W
+ 

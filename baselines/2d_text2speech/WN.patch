@@ -1,0 +1,31 @@
+--- /home/dcg-adlr-rafaelvalle-source.cosmos597/repos/nvidia/waveglow/glow.py
++++ /home/dcg-adlr-rafaelvalle-source.cosmos597/repos/nvidia/waveglow/glow.py
+@@ -4,7 +4,6 @@
+     from WaveNet is the convolutions need not be causal.  There is also no dilation
+     size reset.  The dilation only doubles on each layer
+     """
+-
+     def __init__(self, n_in_channels, n_mel_channels, n_layers, n_channels,
+                  kernel_size):
+         super(WN, self).__init__()
+@@ -45,8 +44,7 @@
+             else:
+                 res_skip_channels = n_channels
+             res_skip_layer = torch.nn.Conv1d(n_channels, res_skip_channels, 1)
+-            res_skip_layer = torch.nn.utils.weight_norm(
+-                res_skip_layer, name='weight')
++            res_skip_layer = torch.nn.utils.weight_norm(res_skip_layer, name='weight')
+             self.res_skip_layers.append(res_skip_layer)
+ 
+     def forward(self, forward_input):
+@@ -61,8 +59,8 @@
+ 
+             res_skip_acts = self.res_skip_layers[i](acts)
+             if i < self.n_layers - 1:
+-                audio = res_skip_acts[:, :self.n_channels, :] + audio
+-                skip_acts = res_skip_acts[:, self.n_channels:, :]
++                audio = res_skip_acts[:,:self.n_channels,:] + audio
++                skip_acts = res_skip_acts[:,self.n_channels:,:]
+             else:
+                 skip_acts = res_skip_acts
+ 
