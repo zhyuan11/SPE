@@ -33,3 +33,5 @@ DietNeRF: [DietNeRF implementation](https://github.com/ajayjain/DietNeRF)
 
 FreeNeRF: [FreeNeRF implementation](https://github.com/Jiawei-Yang/FreeNeRF)
 
+The training and inference script are [./run_nerf.py](./run_nerf.py). The network structure and encoding methods can be found in [./run_nerf_helpers.py](./run_nerf_helpers.py)
+
