@@ -11,14 +11,49 @@ Chuanhao Sun, Zhihang Yuan, Kai Xu, Luo Mai, Siddharth N, Shuo Chen, Mahesh K. M
 
 (Under Review)
 
+## Code Example of SPE
+
+```
+class SPE(nn.Module):
+    def __init__(self, input_dim, hidden_dim):
+        super(SPE, self).__init__()
+        ...
+        ...
+    def positional_encoding(self, x):
+        ...
+
+    def forward(self, x):
+        # Apply positional encoding
+        x = self.positional_encoding(x)
+
+        # Apply fully connected layer
+        x = self.fc(x)
+
+        # Apply element-wise sin
+        x = torch.sin(x)
+        
+        return x
+```
+
+This PyTorch code snippet shows how to implement `SPE`, showcasing the integration of a positional encoding layer based on the Fourier feature mappings discussed in ["Fourier Features Let Networks Learn High Frequency Functions in Low Dimensional Domains"](https://github.com/tancik/fourier-feature-networks/tree/master). The architecture comprises three key components: a positional encoding layer for input transformation, a fully connected layer, and an element-wise sine function laye (For details, please refer to our paper).
+
+## Project Structure Explanation
+
+- `README.md`: Contains the project overview, the main reasults for our proposed SPE on three main experimented use cases: 1) 1-D regression, 2) 2-D speech synthesis and 3) 3-D NeRF.
+- `imgs/`: Lists the results plot for to be displayed in this page (`README.md`). You can see all the main results plots displayed in this `README.md`.
+- `codes/`: This is the main directory for illustration of our experiments with SPE.
+  - `1d_regression/`: This directory contains all experiments and results for 1-D regression use case.
+  - `2d_text2speech/`: This directory contains all experiments and results for 2-D Text to Speech use case.
+  - `3d_NeRF/`: This directory contains all experiments and results for 3-D NeRF use case.
+
 ## Usecases
 
-We conducted extensive use case evaluations including 1) 1-d regression, 2) 2-d speech synthesis and 3) 3-d NeRF.
-The implmentations and results of baseline comparison are listed in [./codes](./codes) folder.
+We conducted extensive use case evaluations including 1) 1-D regression, 2) 2-D speech synthesis and 3) 3-D NeRF.
+The implmentations and results of baseline comparison are listed in `./codes` folder.
 
 ### 1-D regression
 
-[./codes/1d_regression](./codes/1d_regression)
+The detailed code illustration can be found in `./codes/1d_regression`.
 
 We implement the 1d regression task with SPE. See the implementation of ["Fourier Features Let Networks Learn High Frequency Functions in Low Dimensional Domains"](https://github.com/tancik/fourier-feature-networks/tree/master).
 
@@ -40,9 +75,9 @@ We implement the 1d regression task with SPE. See the implementation of ["Fourie
   <em>Fig: Loss plots for 1-d regression task using our proposed SPE.</em>
 </p>
 
-### Text2Speech Generation 
+### 2-D Text2Speech Generation 
 
-[./codes/2d_text2speech](./codes/2d_text2speech)
+The detailed code illustration can be found in `./codes/2d_text2speech`.
 (Under Restructuring)
 
 We implement the SPE with FastSpeech, where the full connection layers perform a bottleneck when generating more details of the speech signal. See the implementation of ["FastSpeech"](https://github.com/xcmyz/FastSpeech)
@@ -55,9 +90,9 @@ The gain is reflected on different fidelity metrics as well.
 ![Speech Table](imgs/speech.png)
 
 
-### NeRF
+### 3-D NeRF
 
-[./codes/3d_NeRF](./codes/3d_NeRF)
+The detailed code illustration can be found in `./codes/3d_NeRF`.
 (Under Restructuring)
 
 We implement the SPE with FreeNeRF and achieve the state-of-the-art performance on few-view NeRF fidelity. See the implementation of ["FreeNeRF"](https://github.com/Jiawei-Yang/FreeNeRF)
