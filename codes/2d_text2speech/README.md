@@ -8,7 +8,7 @@ Notice: This part is still under restructuring for an easier implementation.
 
 For illustration purpose, we will use the Text to Speech Model (["FastSpeech"](https://github.com/xcmyz/FastSpeech)) to generate the sentence `The crime soon became public.`. The corresponding audio file is LJ013-0031 from ["LJSpeech dataset"](https://keithito.com/LJ-Speech-Dataset/).
 
-We have included the ground truth video files, as long as the other three synthetic audio file within the directory [./experiments_results/](./experiments_results).
+We have included the ground truth video files, as long as the other three synthetic audio file within the directory `./experiments_results/`.
 
 The corresponding spectrogram plot can be found in the same directory, plotted by the jupyter notebook script [./mel-spectrogram.ipynb](./mel-spectrogram.ipynb).
 
