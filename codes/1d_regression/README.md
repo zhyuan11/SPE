@@ -1,3 +1,5 @@
+# [Submission] Learning High-Frequency Functions Made Easy with Sinusoidal Positional Encoding
+
 The implementation of 1D regression follows closely the original approach described in the paper ["Fourier Features Let Networks Learn High Frequency Functions in Low Dimensional Domains"](https://github.com/tancik/fourier-feature-networks/tree/master).
 
 
