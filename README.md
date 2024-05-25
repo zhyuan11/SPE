@@ -4,12 +4,9 @@ This is the Official Code for paper
 
 "Learning High-Frequency Functions Made Easy with Sinusoidal Positional Encoding". 
 
-<!---
-Hide:
 Chuanhao Sun, Zhihang Yuan, Kai Xu, Luo Mai, Siddharth N, Shuo Chen, Mahesh K. Marina.
--->
 
-(Under Review)
+This work has been published as a conference paper at **ICML 2024**
 
 ## Code Example of SPE
 
