@@ -8,6 +8,8 @@ Chuanhao Sun, Zhihang Yuan, Kai Xu, Luo Mai, Siddharth N, Shuo Chen, Mahesh K. M
 
 This work has been published as a conference paper at **ICML 2024**
 
+[Download Paper](https://arxiv.org/pdf/2407.09370)
+
 ## Code Example of SPE
 
 ```
